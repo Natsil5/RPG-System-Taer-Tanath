@@ -27,6 +27,6 @@
     "secondaryTokenAttribute": "PM",
     "url": "https://github.com/Natsil5/RPG-System-Taer-Tanath",
     "manifest": "https://raw.githubusercontent.com/Natsil5/RPG-System-Taer-Tanath/master/system.json",
-    "download": "https://github.com/Natsil5/RPG-System-Taer-Tanath.git",
+    "download": "https://github.com/Natsil5/RPG-System-Taer-Tanath/archive/refs/heads/master.zip",
     "license": "LICENSE.txt"
 }
