@@ -1,0 +1,32 @@
+{
+    "id": "d12",
+    "title": "Taer Tanath",
+    "description": "The Taer Tanath system for FoundryVTT !",
+    "version": "0.0.1",
+    "compatibility": {
+      "minimum": "10",
+      "verified": "10.288",
+      "maximum": "10"
+    },
+    "templateVersion": 2,
+    "authors": [
+      {
+        "name": "Vharung",
+        "url": "https://foundryvtt.com"
+      }
+    ],
+    "esmodules": ["module/d12.js"],
+    "styles": ["css/d12.css"],
+    "scripts": [],
+    "packs": [
+    ],
+    "languages": [],
+    "gridDistance": 1,
+    "gridUnits": "m",
+    "primaryTokenAttribute": "PV",
+    "secondaryTokenAttribute": "PM",
+    "url": "",
+    "manifest": "",
+    "download": "",
+    "license": "LICENSE.txt"
+}

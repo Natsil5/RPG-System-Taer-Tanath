@@ -1,0 +1,92 @@
+{
+    "Actor": {
+        "types":[
+            "personnage",
+            "pnj",
+            "monstre"
+        ],
+        "templates":{
+            "stat":{
+                "PV": {
+                  "value":10,
+                  "max":10
+                },
+                "PM": {
+                  "value":10,
+                  "max":10
+                },
+                "mouvement":10,
+                "initiative":0
+            },            
+            "attributs":{
+                "vigueur":0,
+                "coordination":0,
+                "logique":0,
+                "empathie":0,
+                "instinct":0,
+                "pouvoir":0
+            },
+            "background":{
+                "histoire":"",
+                "sexe":"",
+                "age":18
+            }
+        }
+    },
+    "Item": {
+        "types": [
+            "peuple",
+            "metier",
+            "arme",
+            "armure",
+            "objet",
+            "magie",
+            "avantage",
+            "desavantage",
+            "competence",
+            "talent"
+        ],
+        "peuple": {
+            "description": ""
+        },
+        "talent": {
+            "description": ""
+        },
+        "metier": {
+            "description": ""
+        },
+        "arme": {
+            "description": "",
+            "degats":"",
+            "portee":0,
+            "valeur":1,
+            "quantite":1
+        },
+        "armure": {
+            "description": "",
+            "protection":"",
+            "valeur":1,
+            "quantite":1
+        },
+        "objet": {
+            "description": "",
+            "valeur":1,
+            "quantite":1
+        },
+        "magie": {
+            "classe":"",
+            "description": ""
+        },
+        "avantage": {
+            "description": ""
+        },
+        "desavantage": {
+            "description": ""
+        },
+        "competence": {
+            "description": "",
+            "valeur":"",
+            "bonus":""
+        }
+    }
+}

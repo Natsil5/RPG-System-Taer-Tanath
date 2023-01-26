@@ -1,0 +1,304 @@
+<form class="{{cssClass}} liber flexcol" autocomplete="off">
+	{{!-- Sheet Header --}}
+	<header class="sheet-header flexcol" id="pj-titre" style="flex: 0 0 357px;">
+		
+		<div class="flexrow">
+			<div class="grid-2col">
+				<img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" style="display: inline-block; height: 211px; width: calc(100% - 20px); margin-top: 20px"/>
+			</div>
+			<div class="grid-2col">
+				<h1><input class="nomperso" name="name" type="text" value="{{actor.name}}" placeholder="Name" style="height:50px"/></h1>
+				<div class="flexrow">
+					<div class="grid-3col">
+					<h2>Sexe</h2>
+					<input name="system.sexe" type="text" value="{{actor.system.sexe}}" placeholder="10"/>
+					<h2>Peuple</h2>
+						<ol class="items-list">
+						{{#each actor.peuple as |item id|}}
+			                <li class="item flexrow" data-item-id="{{item._id}}">
+			                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+			                    <h4 class="item-name" title="{{item.system.description}}">{{item.name}}</h4>
+			                    <div class="item-controls">  
+			                        <a class="item-control item-delete" title="Delete Sort"><i class="fas fa-trash"></i></a>
+			                    </div>
+			                </li>
+			            {{/each}}
+			        	</ol>
+					</div>
+					<div class="grid-3col">
+						<h2>Age</h2>
+						<input name="system.age" type="text" value="{{actor.system.age}}" placeholder="10"/>
+						<h2>Métier</h2>	
+						<ol class="items-list">
+						{{#each actor.metier as |item id|}}
+			                <li class="item flexrow" data-item-id="{{item._id}}">
+			                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+			                    <h4 class="item-name" title="{{item.system.description}}">{{item.name}}</h4>
+			                    <div class="item-controls">  
+			                        <a class="item-control item-delete" title="Delete Sort"><i class="fas fa-trash"></i></a>
+			                    </div>
+			                </li>
+			            {{/each}}
+			        	</ol>	
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="separator"></div>
+		<div class="flexrow">
+			<div class="grid-5col" style="min-width: 150px;">
+				PV <input class="hp" name="system.PV.value" type="text" value="{{actor.system.PV.value}}" placeholder="1" style="width: 40px;"/> /
+				<input class="hpmax" name="system.PV.max" type="text" value="{{actor.system.PV.max}}" placeholder="1" style="width: 40px;" readonly/>
+				<input class="hpreg" name="system.PV.reg" type="text" value="{{actor.system.PV.reg}}" placeholder="1" style="width: 40px;" readonly/>
+			</div> 
+			<div class="grid-5col" style="min-width: 150px;">
+				PM <input class="psy" name="system.PM.value" type="text" value="{{actor.system.PM.value}}" placeholder="0" style="width: 40px;"/> /
+				<input class="psymax" name="system.PM.max" type="text" value="{{actor.system.PM.max}}" placeholder="0" style="width: 40px;" readonly/>
+				<input class="regenpm" name="system.PM.reg" type="text" value="{{actor.system.PM.reg}}" placeholder="0" style="width: 40px;" readonly/>
+			</div>			
+			<div class="grid-5col" style="min-width: 150px;">
+				M <input class="mouvement" name="system.mouvement" type="text" value="{{actor.system.mouvement}}" placeholder="0" style="width: 40px;"/> 
+			</div>
+			<div class="grid-5col" style="min-width: 150px;">
+				I <input name="system.initiative" type="text" value="{{actor.system.initiative}}" placeholder="0" style="width: 40px;"/> 
+			</div>
+		</div>
+	</header>
+
+	{{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">Description</a>
+        <a class="item" data-tab="carac">Caractéristiques</a>
+        <a class="item" data-tab="lab">Compétences</a>
+        <a class="item" data-tab="spells">Magie</a>
+        <a class="item" data-tab="items">Inventaire</a>
+    </nav>
+
+	{{!-- Sheet Body --}}
+	<section class="sheet-body">
+		{{!-- Biography Tab --}}
+	    <div id="description" class="tab description" data-group="primary" data-tab="description">
+	    	<h2>Histoire</h2>
+				<textarea class="histoire" name="system.histoire">{{actor.system.histoire}}</textarea>
+			
+		</div>
+
+		{{!-- Carac Tab --}}
+		<div id="carac" class="tab carac" data-group="primary" data-tab="carac">
+			<div class="flexrow">
+				<div class="grid-6col">
+					<p style="text-align: center"><label>Vigueur</label></p>
+					<input class="agil" name="system.vigueur" type="text" value="{{actor.system.vigueur}}" placeholder="{{actor.system.vigueur}}" style="text-align: center"/>
+				</div>
+				<div class="grid-6col">
+					<p style="text-align: center"><label>Coordination</label></p>
+					<input class="agil" name="system.coordination" type="text" value="{{actor.system.coordination}}" placeholder="{{actor.system.coordination}}" style="text-align: center"/>
+				</div>
+				<div class="grid-6col">
+					<p style="text-align: center"><label>Logique</label></p>
+					<input class="agil" name="system.logique" type="text" value="{{actor.system.logique}}" placeholder="{{actor.system.logique}}" style="text-align: center"/>
+				</div>
+				<div class="grid-6col">
+					<p style="text-align: center"><label>Empathie</label></p>
+					<input class="agil" name="system.empathie" type="text" value="{{actor.system.empathie}}" placeholder="{{actor.system.empathie}}" style="text-align: center"/>
+				</div>
+				<div class="grid-6col">
+					<p style="text-align: center"><label>Instinct</label></p>
+					<input class="agil" name="system.instinct" type="text" value="{{actor.system.instinct}}" placeholder="{{actor.system.instinct}}" style="text-align: center"/>
+				</div>
+				<div class="grid-6col">
+					<p style="text-align: center"><label>Pouvoir</label></p>
+					<input class="agil" name="system.pouvoir" type="text" value="{{actor.system.pouvoir}}" placeholder="{{actor.system.pouvoir}}" style="text-align: center"/>
+				</div>
+				
+			</div>
+			<h2>Talent / Faiblesse</h2>
+			<ol class="items-list">
+	                <li class="item flexrow item-header">
+	                  <div class="item-image"></div>
+	                  <div class="item-name">Nom</div>
+	                  <div class="item-description">Description</div>                                 
+	                  <div class="item-controls">
+	                    <!--a class="item-control item-create" title="Create item" data-type="armes"><i class="fas fa-plus"></i> Add item</a-->
+	                  </div>
+	                </li>
+	            {{#each actor.talent as |item id|}}
+	                <li class="item flexrow" data-item-id="{{item._id}}">
+	                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+	                    <h4 class="item-name">{{item.name}}</h4>
+	                    <h4 class="item-description" title="{{item.system.description}}">{{item.system.description}}</h4>
+	                    <div class="item-controls">
+	                        <a class="item-control item-edit" title="Edit Sort"><i class="fas fa-edit"></i></a>
+	                        <a class="item-control item-delete" title="Delete Sort"><i class="fas fa-trash"></i></a>
+	                    </div>
+	                </li>
+	            {{/each}}
+        		</ol>
+		</div>
+
+		{{!-- Lab Tab --}}
+		<div id="lab" class="tab stat" data-group="primary" data-tab="lab">
+			<table>
+		        <ol class="items-list">
+	                <li class="item flexrow item-header">
+	                  <div class="item-image"></div>
+	                  <div class="item-name">Nom</div>
+	                  <div class="item-description">Description</div>                                 
+	                  <div class="item-valeur">Valeur</div>                                 
+	                  <div class="item-bonus">Bonus/Malus</div>
+	                  <div class="item-total">Total</div>                                 
+	                  <div class="item-controls">
+	                    <!--a class="item-control item-create" title="Create item" data-type="armes"><i class="fas fa-plus"></i> Add item</a-->
+	                  </div>
+	                </li>
+	            {{#each actor.competence as |item id|}}
+	                <li class="item flexrow" data-item-id="{{item._id}}">
+	                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+	                    <h4 class="item-name">{{item.name}}</h4>
+	                    <h4 class="item-description" title="{{item.system.description}}">{{item.system.description}}</h4>
+	                    <h4 class="item-valeur" title="{{item.system.valeur}}">{{item.system.valeur}}</h4>
+	                    <h4 class="item-bonus" title="{{item.system.bonus}}">{{item.system.bonus}}</h4>
+	                    <div class="item-total"></div> 
+	                    <div class="item-controls">
+	                        <a class="item-control item-edit" title="Edit Sort"><i class="fas fa-edit"></i></a>
+	                        <a class="item-control item-delete" title="Delete Sort"><i class="fas fa-trash"></i></a>
+	                    </div>
+	                </li>
+	            {{/each}}
+        		</ol>
+		    </table>
+		</div>
+
+
+		{{!-- Pouvoirs Tab --}}
+		<div id="spells" class="tab spells" data-group="primary" data-tab="spells">
+			<h2>Sort</h2>
+		    <table>
+		        <ol class="items-list">
+	                <li class="item flexrow item-header">
+	                  <div class="item-image"></div>
+	                  <div class="item-name">Nom</div>
+	                  <div class="item-classe">Ecole</div>
+	                  <div class="item-description">Description</div>               
+	                  <div class="item-controls">
+	                    <!--a class="item-control item-create" title="Create item" data-type="armes"><i class="fas fa-plus"></i> Add item</a-->
+	                  </div>
+	                </li>
+	            {{#each actor.sort as |item id|}}
+	                <li class="item flexrow" data-item-id="{{item._id}}">
+	                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+	                    <h4 class="item-name">{{item.name}}</h4>
+	                    <div class="item-classe">{{item.system.classe}}</div>
+	                    <h4 class="item-description" title="{{item.system.description}}">{{item.system.description}}</h4>
+	                    <h4 class="item-description"><SELECT class="caract"  name="item.system.caract">
+			                {{#select item.system.caract}}
+			                    <OPTION value="Vigueur" title="">Vigueur</OPTION>
+			                    <OPTION value="Pouvoir" title="">Pouvoir</OPTION>
+			                {{/select}}
+			            </SELECT></h4>
+	                    <div class="item-controls">
+	                    	
+	                        <a class="item-control item-edit" title="Edit Sort"><i class="fas fa-edit"></i></a>
+	                        <a class="item-control item-delete" title="Delete Sort"><i class="fas fa-trash"></i></a>
+	                    </div>
+	                </li>
+	            {{/each}}
+        		</ol>
+		    </table>
+		</div>
+
+		{{!-- Items Tab --}}
+		<div id="items" class="tab items" data-group="primary" data-tab="items">
+			<h2>Armes</h2>
+			<table>
+				<ol class="items-list">
+	                <li class="item flexrow item-header">
+	                  <div class="item-image"></div>
+	                  <div class="item-name">Nom</div>
+	                  <div class="item-description">Description</div> 
+	                  <div class="item-dommage">{{item.system.degat}}</h4>              
+	                  <div class="item-valeur">Valeur</div>
+	                  <div class="item-qty">Quantite</div>
+	                  <div class="item-controls">
+	                    <!--a class="item-control item-create" title="Create item" data-type="armes"><i class="fas fa-plus"></i> Add item</a-->
+	                  </div>
+	                </li>
+	            {{#each actor.arme as |item id|}}
+	                <li class="item flexrow" data-item-id="{{item._id}}">
+	                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+	                    <h4 class="item-name" title="{{item.name}}">{{item.name}}</h4>
+	                    <h4 class="item-description" title="{{item.system.description}}">{{item.system.description}}</h4>
+	                    <h4 class="item-dommage">{{item.system.degat}}</h4>
+	                    <h4 class="item-valeur">{{item.system.valeur}}</h4>
+	                    <h4 class="item-qty">{{item.system.quantite}}</h4>
+	                    <div class="item-controls">
+	                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+	                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+	                    </div>
+	                </li>
+	            {{/each}}
+        		</ol>
+		    </table>
+		    <h2>Armures</h2>
+			<table>
+				<ol class="items-list">
+	                <li class="item flexrow item-header">
+	                  <div class="item-image"></div>
+	                  <div class="item-name">Nom</div>
+	                  <div class="item-description">Description</div>               
+	                  <div class="item-protection">Protection</div>               
+	                  <div class="item-valeur">Valeur</div>
+	                  <div class="item-qty">Quantite</div>
+	                  <div class="item-controls">
+	                    <!--a class="item-control item-create" title="Create item" data-type="armes"><i class="fas fa-plus"></i> Add item</a-->
+	                  </div>
+	                </li>
+	            {{#each actor.armure as |item id|}}
+	                <li class="item flexrow" data-item-id="{{item._id}}">
+	                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+	                    <h4 class="item-name" title="{{item.name}}">{{item.name}}</h4>
+	                    <h4 class="item-description" title="{{item.system.description}}">{{item.system.description}}</h4>
+	                    <h4 class="item-protection">{{item.system.protection}}</h4>
+	                    <h4 class="item-valeur">{{item.system.valeur}}</h4>
+	                    <h4 class="item-qty">{{item.system.quantite}}</h4>
+	                    <div class="item-controls">
+	                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+	                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+	                    </div>
+	                </li>
+	            {{/each}}
+        		</ol>
+		    </table>
+			<h2>Inventaire</h2>
+			<table>
+				<ol class="items-list">
+	                <li class="item flexrow item-header">
+	                  <div class="item-image"></div>
+	                  <div class="item-name">Nom</div>
+	                  <div class="item-description">Description</div>               
+	                  <div class="item-valeur">Valeur</div>
+	                  <div class="item-qty">Quantite</div>
+	                  <div class="item-controls">
+	                    <!--a class="item-control item-create" title="Create item" data-type="armes"><i class="fas fa-plus"></i> Add item</a-->
+	                  </div>
+	                </li>
+	            {{#each actor.inventaire as |item id|}}
+	                <li class="item flexrow" data-item-id="{{item._id}}">
+	                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+	                    <h4 class="item-name" title="{{item.name}}">{{item.name}}</h4>
+	                    <h4 class="item-description" title="{{item.system.description}}">{{item.system.description}}</h4>
+	                    <h4 class="item-dommage">{{item.system.degats}}</h4>
+	                    <h4 class="item-valeur">{{item.system.valeur}}</h4>
+	                    <h4 class="item-qty">{{item.system.quantite}}</h4>
+	                    <div class="item-controls">
+	                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+	                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+	                    </div>
+	                </li>
+	            {{/each}}
+        		</ol>
+		    </table>
+		</div>
+	</section>
+</form>
