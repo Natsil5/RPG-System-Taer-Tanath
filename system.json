@@ -20,7 +20,7 @@
     "scripts": [],
     "packs": [
     ],
-    "languages": ["fr"],
+    "languages": [],
     "gridDistance": 1,
     "gridUnits": "m",
     "primaryTokenAttribute": "PV",
