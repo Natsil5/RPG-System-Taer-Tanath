@@ -121,12 +121,12 @@
         item.sheet.render(true);
     }
     async _onStat(event){
-        let vigueur=this.actor.system.vigueur="";
-        let coordination=this.actor.system.coordination="";
-        let logique=this.actor.system.logique="";
-        let instinct=this.actor.system.instinct="";
-        let empathie=this.actor.system.empathie="";
-        let pouvoir=this.actor.system.pouvoir="";
+        let vigueur=this.actor.system.vigueur;
+        let coordination=this.actor.system.coordination;
+        let logique=this.actor.system.logique;
+        let instinct=this.actor.system.instinct;
+        let empathie=this.actor.system.empathie;
+        let pouvoir=this.actor.system.pouvoir;
         var pv=parseInt(vigueur*5);
         var pm=parseInt(pouvoir*5);
         var pvreg=Math.round(parseInt(vigueur)/2)

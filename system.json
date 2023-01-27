@@ -18,10 +18,9 @@
     "esmodules": ["module/d12.js"],
     "styles": ["css/d12.css"],
     "scripts": [],
-    "packs": [
-    ],
+    "packs": [],
     "languages": [],
-    "gridDistance": 1,
+    "gridDistance": 1.5,
     "gridUnits": "m",
     "primaryTokenAttribute": "PV",
     "secondaryTokenAttribute": "PM",
