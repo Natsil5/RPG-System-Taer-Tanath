@@ -121,31 +121,54 @@
         item.sheet.render(true);
     }
     async _onStat(event){
-/*        let vigueur=this.actor.system.vigueur;
-        let coordination=this.actor.system.coordination;
-        let logique=this.actor.system.logique;
-        let instinct=this.actor.system.instinct;
-        let empathie=this.actor.system.empathie;
-        let pouvoir=this.actor.system.pouvoir;
-        var pv=parseInt(vigueur*5);
-        var pm=parseInt(pouvoir*5);
-        var pvreg=Math.round(parseInt(vigueur)/2)
-        var pmreg=Math.round(parseInt(pouvoir)/2)
-        this.actor.update({"system.PV.max":pv,"system.PM.max":pm,"system.PV.reg":pvreg,"system.PM.reg":pmreg})
-    */}
+      let vigueur=this.actor.system.vigueur;
+      let pouvoir=this.actor.system.pouvoir;
+      var pv=parseInt(vigueur*5);
+      var pm=parseInt(pouvoir*5);
+      var pvreg=Math.round(parseInt(vigueur)/2)
+      var pmreg=Math.round(parseInt(pouvoir)/2)
+      this.actor.update({"system.PV.max":pv,"system.PM.max":pm,"system.PV.reg":pvreg,"system.PM.reg":pmreg})
+  }
+
     //lancer de dés
     _onRoll(event){
-        let monJetDeDes = event.target.dataset["dice"];
-        let nbdes = event.target.dataset["attdice"];
+        let caract = event.target.dataset["caract"];
+        let bonus = event.target.dataset["bonus"];
+        let valeur = event.target.dataset["valeur"];
         const name = event.target.dataset["name"];
-        const jetdeDesFormule = nbdes+"d12"; //formule du lancer
+        const img = event.target.dataset["img"];
+        if(caract=="vigueur"){
+            var base=this.actor.system.vigueur;
+        }else  if(caract=="coordination"){
+            var base=this.actor.system.coordination;
+        }else  if(caract=="logique"){
+            var base=this.actor.system.logique;
+        }else  if(caract=="empathie"){
+            var base=this.actor.system.empathie;
+        }else  if(caract=="instinct"){
+            var base=this.actor.system.instinct;
+        }else  if(caract=="pouvoir"){
+            var base=this.actor.system.pouvoir;
+        }else{
+            var base=0;
+        }
+        var ajout=parseInt(bonus)+parseInt(valeur)
+        const jetdeDesFormule = parseInt(base)+"d12+"+ajout; //formule du lancer (carta)D12+valeur
 
-        let r = new Roll(nbdes+"d12");
+        let r = new Roll(jetdeDesFormule);
         var roll=r.evaluate({"async": false});
-        let retour=r.result; 
+        var table=r.terms[0].results
+        console.log(table); 
+        var z=0;
+        for (var i = table.length - 1; i >= 0; i--) {
+            if(table[i].result>z){
+                z=table[i].result;
+            }
+        } 
+        var total=parseInt(z)+parseInt(ajout)
         var succes="";
 
-        const texte = "Jet de " + name + " : " +jetdeDesFormule ;//+" - "+succes+" réussite(s)";
+        const texte = '<img src="'+img+'"  width="24" height="24"/><span style="left: 5px;top: -7px;position: relative;font-size: 1.2em;">Jet de ' + name + ' : <span style="color: #fff;background: #23221d;padding: 5px;">' +total+'</span></span>' ;//+" - "+succes+" réussite(s)";
         roll.toMessage({
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
             flavor: texte
