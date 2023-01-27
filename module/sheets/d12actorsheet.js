@@ -121,12 +121,16 @@
         item.sheet.render(true);
     }
     async _onStat(event){
-        let vigueur=this.actor.system.vigueur;
-        let pouvoir=this.actor.system.pouvoir;
+        let vigueur=this.actor.system.vigueur=1;
+        let coordination=this.actor.system.coordination=1;
+        let logique=this.actor.system.logique=1;
+        let instinct=this.actor.system.instinct=1;
+        let empathie=this.actor.system.empathie=1;
+        let pouvoir=this.actor.system.pouvoir=1;
         var pv=parseInt(vigueur*5);
         var pm=parseInt(pouvoir*5);
-        var pvreg=Math.round(parseInt(vigueur)/2)
-        var pmreg=Math.round(parseInt(pouvoir)/2)
+        var pvreg=Math.roundup(parseInt(vigueur)/2)
+        var pmreg=Math.roundup(parseInt(pouvoir)/2)
         this.actor.update({"system.PV.max":pv,"system.PM.max":pm,"system.PV.reg":pvreg,"system.PM.reg":pmreg})
     }
     //lancer de dés
