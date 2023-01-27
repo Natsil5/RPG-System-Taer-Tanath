@@ -11,7 +11,7 @@ Hooks.once("init", async function() {
     CONFIG.Item.documentClass = d12Item;
 
     CONFIG.Combat.initiative = {
-	    formula: "1d12",//formule pour l'initiative des personnage
+	    formula: "1d6",//formule pour l'initiative des personnage
 	    decimals: 2
 	};
 

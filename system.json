@@ -4,14 +4,14 @@
     "description": "The Taer Tanath system for FoundryVTT !",
     "version": "0.0.1",
     "compatibility": {
-      "minimum": "9",
+      "minimum": "10",
       "verified": "10.288",
       "maximum": "10"
     },
     "templateVersion": 2,
     "authors": [
       {
-        "name": "Vharung & Natsil",
+        "name": "Vharung",
         "url": "https://foundryvtt.com"
       }
     ],
@@ -25,8 +25,8 @@
     "gridUnits": "m",
     "primaryTokenAttribute": "PV",
     "secondaryTokenAttribute": "PM",
-    "url": "https://github.com/Natsil5/RPG-System-Taer-Tanath",
-    "manifest": "https://raw.githubusercontent.com/Natsil5/RPG-System-Taer-Tanath/master/system.json",
-    "download": "https://github.com/Natsil5/RPG-System-Taer-Tanath/archive/refs/heads/master.zip",
+    "url": "",
+    "manifest": "",
+    "download": "",
     "license": "LICENSE.txt"
 }

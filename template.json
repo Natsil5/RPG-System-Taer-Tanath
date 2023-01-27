@@ -9,11 +9,13 @@
             "stat":{
                 "PV": {
                   "value":10,
-                  "max":10
+                  "max":10,
+                  "reg":0
                 },
                 "PM": {
                   "value":10,
-                  "max":10
+                  "max":10,
+                  "reg":0
                 },
                 "mouvement":10,
                 "initiative":0

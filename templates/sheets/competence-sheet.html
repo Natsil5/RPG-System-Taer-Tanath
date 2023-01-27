@@ -16,7 +16,16 @@
             <label>Valeur
                 <input name="system.valeur" type="text" value="{{item.system.valeur}}" placeholder="Valeur"/>
             </label>
-            
+            <select name="system.caract">
+                {{#select item.system.caract}}
+                    <OPTION value="vigueur" title="">Vigueur</OPTION>
+                    <OPTION value="coordination" title="">Coordination</OPTION>
+                    <OPTION value="logique" title="">Logique</OPTION>
+                    <OPTION value="empathie" title="">Empathie</OPTION>
+                    <OPTION value="instinct" title="">Instinct</OPTION>
+                    <OPTION value="pouvoir" title="">Pouvoir</OPTION>
+                {{/select}}
+            </select>
         </div>
         <div class="grid-2col">
             <label>Bonus / malus
