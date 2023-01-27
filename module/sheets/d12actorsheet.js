@@ -121,24 +121,18 @@
         item.sheet.render(true);
     }
     async _onStat(event){
-        let vigueur=this.actor.system.vigueur;
-        vigueur = "1"
+/*        let vigueur=this.actor.system.vigueur;
         let coordination=this.actor.system.coordination;
-        coordination = "1";
         let logique=this.actor.system.logique;
-        logique = "1";
         let instinct=this.actor.system.instinct;
-        instinct = "1";
         let empathie=this.actor.system.empathie;
-        empathie = "1";
         let pouvoir=this.actor.system.pouvoir;
-        pouvoir = "1"
         var pv=parseInt(vigueur*5);
         var pm=parseInt(pouvoir*5);
         var pvreg=Math.round(parseInt(vigueur)/2)
         var pmreg=Math.round(parseInt(pouvoir)/2)
         this.actor.update({"system.PV.max":pv,"system.PM.max":pm,"system.PV.reg":pvreg,"system.PM.reg":pmreg})
-    }
+    */}
     //lancer de dés
     _onRoll(event){
         let monJetDeDes = event.target.dataset["dice"];
