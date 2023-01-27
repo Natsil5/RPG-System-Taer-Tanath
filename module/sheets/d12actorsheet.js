@@ -100,7 +100,7 @@
         // Delete Inventory Item
         html.find('.item-delete').click(ev => {
             const li = $(ev.currentTarget).parents(".item");
-            const item = this.actor.items.get(li.data("itemId"));
+            const item = this.actor.items.get(li.system("itemId"));
             item.delete();
             li.slideUp(200, () => this.render(false));
         });
@@ -113,7 +113,7 @@
 
     getItemFromEvent = (ev) => {
         const parent = $(ev.currentTarget).parents(".item");
-        return this.actor.items.get(parent.data("itemId"));
+        return this.actor.items.get(parent.system("itemId"));
     }
 
     _onItemEdit(event){
@@ -131,9 +131,9 @@
     }
     //lancer de dés
     _onRoll(event){
-        let monJetDeDes = event.target.dataset["dice"];
-        let nbdes = event.target.dataset["attdice"];
-        const name = event.target.dataset["name"];
+        let monJetDeDes = event.target.systemset["dice"];
+        let nbdes = event.target.systemset["attdice"];
+        const name = event.target.systemset["name"];
         const jetdeDesFormule = nbdes+"d12"; //formule du lancer
 
         let r = new Roll(nbdes+"d12");
