@@ -120,11 +120,9 @@
         const item = this.getItemFromEvent(event);
         item.sheet.render(true);
     }
-    async _onStat(event){
-/*      let vigueur=this.actor.system.vigueur;
-      let pouvoir=this.actor.system.pouvoir;*/
-      let vigueur = "1";
-      let pouvoir = "1";
+    _onStat(event){
+      let vigueur=this.actor.system.vigueur;
+      let pouvoir=this.actor.system.pouvoir;
       var pv=parseInt(vigueur*5);
       var pm=parseInt(pouvoir*5);
       var pvreg=Math.round(parseInt(vigueur)/2)
