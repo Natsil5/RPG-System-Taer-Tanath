@@ -106,7 +106,15 @@
         });
 
         //Jet de des
-        html.find('.jetdedes').click(this._onRoll.bind(this));
+        html.find('.item-utiliser').click(this._onRoll.bind(this));
+
+        //total competence
+        html.find( ".total" ).each(function() {
+          var v=$( this ).data('valeur');
+          var b=$( this ).data('bonus');
+          var t=parseInt(v)+parseInt(b)
+          $( this ).html(t)
+        });
 
     }
 
@@ -131,17 +139,43 @@
     }
     //lancer de dés
     _onRoll(event){
-        let monJetDeDes = event.target.dataset["dice"];
-        let nbdes = event.target.dataset["attdice"];
+        let caract = event.target.dataset["caract"];
+        let bonus = event.target.dataset["bonus"];
+        let valeur = event.target.dataset["valeur"];
         const name = event.target.dataset["name"];
-        const jetdeDesFormule = nbdes+"d12"; //formule du lancer
+        const img = event.target.dataset["img"];
+        if(caract=="vigueur"){
+            var base=this.actor.system.vigueur;
+        }else  if(caract=="coordination"){
+            var base=this.actor.system.coordination;
+        }else  if(caract=="logique"){
+            var base=this.actor.system.logique;
+        }else  if(caract=="empathie"){
+            var base=this.actor.system.empathie;
+        }else  if(caract=="instinct"){
+            var base=this.actor.system.instinct;
+        }else  if(caract=="pouvoir"){
+            var base=this.actor.system.pouvoir;
+        }else{
+            var base=0;
+        }
+        var ajout=parseInt(bonus)+parseInt(valeur)
+        const jetdeDesFormule = parseInt(base)+"d12+"+ajout; //formule du lancer (carta)D12+valeur
 
-        let r = new Roll(nbdes+"d6");
+        let r = new Roll(jetdeDesFormule);
         var roll=r.evaluate({"async": false});
-        let retour=r.result; 
+        var table=r.terms[0].results
+        console.log(table); 
+        var z=0;
+        for (var i = table.length - 1; i >= 0; i--) {
+            if(table[i].result>z){
+                z=table[i].result;
+            }
+        } 
+        var total=parseInt(z)+parseInt(ajout)
         var succes="";
 
-        const texte = "Jet de " + name + " : " +jetdeDesFormule ;//+" - "+succes+" réussite(s)";
+        const texte = '<img src="'+img+'"  width="24" height="24"/><span style="left: 5px;top: -7px;position: relative;font-size: 1.2em;">Jet de ' + name + ' : <span style="color: #fff;background: #23221d;padding: 5px;">' +total+'</span></span>' ;//+" - "+succes+" réussite(s)";
         roll.toMessage({
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
             flavor: texte
