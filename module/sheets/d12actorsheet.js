@@ -106,7 +106,7 @@
         });
 
         //Jet de des
-        html.find('.jetdedes').click(this._onRoll.bind(this));
+        html.find('.item-utiliser').click(this._onRoll.bind(this));
 
     }
 
