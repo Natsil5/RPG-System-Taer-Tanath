@@ -121,14 +121,14 @@
         item.sheet.render(true);
     }
     async _onStat(event){
-      let vigueur=this.actor.system.vigueur;
+/*      let vigueur=this.actor.system.vigueur;
       let pouvoir=this.actor.system.pouvoir;
       var pv=parseInt(vigueur*5);
       var pm=parseInt(pouvoir*5);
       var pvreg=Math.round(parseInt(vigueur)/2)
       var pmreg=Math.round(parseInt(pouvoir)/2)
       this.actor.update({"system.PV.max":pv,"system.PM.max":pm,"system.PV.reg":pvreg,"system.PM.reg":pmreg})
-  }
+    */}
 
     //lancer de dés
     _onRoll(event){
