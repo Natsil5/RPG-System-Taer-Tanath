@@ -2,7 +2,7 @@
     "id": "d12",
     "title": "Taer Tanath",
     "description": "The Taer Tanath system for FoundryVTT !",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "compatibility": {
       "minimum": "10",
       "verified": "10.288",
@@ -11,7 +11,7 @@
     "templateVersion": 2,
     "authors": [
       {
-        "name": "Vharung",
+        "name": "Vharung & Natsil",
         "url": "https://foundryvtt.com"
       }
     ],
