@@ -2,7 +2,7 @@
 /* Global styles */
 .window-app {font-family: "Docktrin", sans-serif;}
 .taerTanath.sheet .window-content {background-image: url("../assets/parchemin.jpg"); }
-#pj-titre{background:#1d1d1d; background-size: cover; width: 100%;color:white; display: block; padding: 20px;vertical-align: top;overflow: auto;}
+#pj-titre{background:#1d1d1d; background-size: cover; width: 100%;color:white; display: block; padding: 20px;overflow: auto;}
 #pj-titre input, #pj-titre textarea{color: white; background:#000000b5; border :none}
 .pj-hist{width: calc(50% - 10px);}
 .tableaucreation{text-align: center;display: inline-block;margin-top: 10px;width: 120px; height: 50px;}

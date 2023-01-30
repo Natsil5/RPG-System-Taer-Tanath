@@ -16,6 +16,16 @@
             <label>Dégât
                 <input name="system.degat" type="text" value="{{item.system.degat}}" placeholder="Dégat"/>
             </label>
+            <select name="system.caract">
+                {{#select item.system.caract}}
+                    <OPTION value="vigueur" title="">Vigueur</OPTION>
+                    <OPTION value="coordination" title="">Coordination</OPTION>
+                    <OPTION value="logique" title="">Logique</OPTION>
+                    <OPTION value="empathie" title="">Empathie</OPTION>
+                    <OPTION value="instinct" title="">Instinct</OPTION>
+                    <OPTION value="pouvoir" title="">Pouvoir</OPTION>
+                {{/select}}
+            </select>
             <label>Valeur
                 <input name="system.valeur" type="text" value="{{item.system.valeur}}" placeholder="Valeur"/>
             </label>
