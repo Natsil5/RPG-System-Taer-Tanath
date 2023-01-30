@@ -158,7 +158,24 @@ _prepareCharacterItems(sheetData) {
       let jetdeDesFormule = '1d12';
       let ajout=0;
       if(valeur=="armes"){
-          jetdeDesFormule = caract;
+          //jetdeDesFormule = caract;
+          if(caract=="vigueur"){
+            var dmgbonus=this.actor.system.attributs.vigueur;
+        }else  if(caract=="coordination"){
+            var dmgbonus=this.actor.system.attributs.coordination;
+        }else  if(caract=="logique"){
+            var dmgbonus=this.actor.system.attributs.logique;
+        }else  if(caract=="empathie"){
+            var dmgbonus=this.actor.system.attributs.empathie;
+        }else  if(caract=="instinct"){
+            var dmgbonus=this.actor.system.attributs.instinct;
+        }else  if(caract=="pouvoir"){
+            var dmgbonus=this.actor.system.attributs.pouvoir;
+        }else{
+            var dmgbonus=0;
+        }
+        ajout=dmgbonus;
+        jetdeDesFormule= caract + ajout
       }else {
           if(caract=="vigueur"){
               var base=this.actor.system.attributs.vigueur;
