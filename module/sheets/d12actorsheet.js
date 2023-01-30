@@ -181,7 +181,9 @@ _prepareCharacterItems(sheetData) {
       
 
       let r = new Roll(jetdeDesFormule);
+      console.log("1")
       var roll=r.evaluate({"async": false});
+      console.log("2")
       
       if(valeur=="armes"){
           var total=r.total;
