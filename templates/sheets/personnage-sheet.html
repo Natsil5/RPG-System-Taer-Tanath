@@ -11,7 +11,7 @@
 				<div class="flexrow">
 					<div class="grid-3col">
 					<h2>Sexe</h2>
-					<input name="system.background.sexe" type="text" value="" placeholder="sexe"/>
+					<input name="system.background.sexe" type="text" value="" placeholder=""/>
 					<h2>Peuple</h2>
 						<ol class="items-list">
 						{{#each actor.peuple as |item id|}}
@@ -27,7 +27,7 @@
 					</div>
 					<div class="grid-3col">
 						<h2>Age</h2>
-						<input name="system.backgroundage" type="text" value="" placeholder="age"/>
+						<input name="system.backgroundage" type="text" value="" placeholder=""/>
 						<h2>Métier</h2>	
 						<ol class="items-list">
 						{{#each actor.metier as |item id|}}
@@ -214,7 +214,7 @@
 	                  <div class="item-image"></div>
 	                  <div class="item-name">Nom</div>
 	                  <div class="item-description">Description</div> 
-	                  <div class="item-dommage">{{item.system.degat}}</h4>              
+	                  <div class="item-dommage">Degât</div>              
 	                  <div class="item-valeur">Valeur</div>
 	                  <div class="item-qty">Quantite</div>
 	                  <div class="item-controls">
@@ -230,6 +230,7 @@
 	                    <h4 class="item-valeur">{{item.system.valeur}}</h4>
 	                    <h4 class="item-qty">{{item.system.quantite}}</h4>
 	                    <div class="item-controls">
+	                    	<a class="item-control item-utiliser" title="Lancer"><i class="fa-solid fa-dice-d20" data-valeur="armes" data-caract="{{item.system.degat}}" data-name="{{item.name}}" data-img="{{item.img}}"></i></a>
 	                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
 	                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
 	                    </div>
