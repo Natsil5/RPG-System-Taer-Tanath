@@ -127,12 +127,12 @@
       let empathie=this.actor.system.empathie;
       let instinct=this.actor.system.instinct;
       let pouvoir=this.actor.system.pouvoir;
-      if(vigueur=="" || vigueur==undefined){vigueur=1;}
-      if(coordination=="" || coordination==undefined){coordination=1;}
-      if(logique=="" || logique==undefined){logique=1;}
-      if(empathie=="" || empathie==undefined){empathie=1;}
-      if(instinct=="" || instinct==undefined){instinct=1;}
-      if(pouvoir=="" || pouvoir==undefined){pouvoir=1;}
+      if(vigueur=="" || vigueur==undefined){vigueur=1;this.actor.update({"system.vigueur":1});}
+      if(coordination=="" || coordination==undefined){coordination=1;this.actor.update({"system.coordination":1});}
+      if(logique=="" || logique==undefined){logique=1;this.actor.update({"system.logique":1});}
+      if(empathie=="" || empathie==undefined){empathie=1;this.actor.update({"system.empathie":1});}
+      if(instinct=="" || instinct==undefined){instinct=1;this.actor.update({"system.instinct":1});}
+      if(pouvoir=="" || pouvoir==undefined){pouvoir=1;this.actor.update({"system.pouvoir":1});}
       var pv=parseInt(vigueur*5);
       var pm=parseInt(pouvoir*5);        
       var pvreg=Math.round(parseInt(vigueur)/2)
