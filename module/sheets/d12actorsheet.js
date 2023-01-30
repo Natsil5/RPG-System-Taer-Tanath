@@ -161,22 +161,22 @@ _prepareCharacterItems(sheetData) {
           jetdeDesFormule = caract;
       }else {
           if(caract=="vigueur"){
-              var base=this.actor.system.vigueur;
+              let base=this.actor.system.vigueur;
           }else  if(caract=="coordination"){
-              var base=this.actor.system.coordination;
+              let base=this.actor.system.coordination;
           }else  if(caract=="logique"){
-              var base=this.actor.system.logique;
+              let base=this.actor.system.logique;
           }else  if(caract=="empathie"){
-              var base=this.actor.system.empathie;
+              let base=this.actor.system.empathie;
           }else  if(caract=="instinct"){
-              var base=this.actor.system.instinct;
+              let base=this.actor.system.instinct;
           }else  if(caract=="pouvoir"){
-              var base=this.actor.system.pouvoir;
+              let base=this.actor.system.pouvoir;
           }else{
-              var base=0;
+              let base=0;
           }
           ajout=parseInt(bonus)+parseInt(valeur)
-          jetdeDesFormule = parseInt(base)+"d12+"+ajout; //formule du lancer (carta)D12+valeur  
+          jetdeDesFormule = parseInt(base)+"d12+"+ajout; //formule du lancer (caract)D12+valeur  
       }
       
 
