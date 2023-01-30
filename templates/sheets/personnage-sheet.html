@@ -11,7 +11,7 @@
 				<div class="flexrow">
 					<div class="grid-3col">
 					<h2>Sexe</h2>
-					<input name="system.sexe" type="text" value="{{actor.system.sexe}}" placeholder="sexe"/>
+					<input name="system.background.sexe" type="text" value="{{actor.system.background.sexe}}" placeholder="10"/>
 					<h2>Peuple</h2>
 						<ol class="items-list">
 						{{#each actor.peuple as |item id|}}
@@ -27,7 +27,7 @@
 					</div>
 					<div class="grid-3col">
 						<h2>Age</h2>
-						<input name="system.age" type="text" value="{{actor.system.age}}" placeholder="age"/>
+						<input name="system.backgroundage" type="text" value="{{actor.system.background.age}}" placeholder="10"/>
 						<h2>Métier</h2>	
 						<ol class="items-list">
 						{{#each actor.metier as |item id|}}
@@ -48,20 +48,20 @@
 		<div class="separator"></div>
 		<div class="flexrow">
 			<div class="grid-5col" style="min-width: 150px;">
-				PV <input class="hp" name="system.PV.value" type="text" value="{{actor.system.PV.value}}" placeholder="1" style="width: 40px;"/> /
-				<input class="hpmax" name="system.PV.max" type="text" value="{{actor.system.PV.max}}" placeholder="1" style="width: 40px;" readonly/>
-				<input class="hpreg" name="system.PV.reg" type="text" value="{{actor.system.PV.reg}}" placeholder="1" style="width: 40px;" readonly/>
+				PV <input class="hp" name="system.stat.PV.value" type="text" value="{{actor.system.stat.PV.value}}" placeholder="1" style="width: 40px;"/> /
+				<input class="hpmax" name="system.stat.PV.max" type="text" value="{{actor.system.stat.PV.max}}" placeholder="1" style="width: 40px;" readonly/>
+				<input class="hpreg" name="system.stat.PV.reg" type="text" value="{{actor.system.stat.PV.reg}}" placeholder="1" style="width: 40px;" readonly/>
 			</div> 
 			<div class="grid-5col" style="min-width: 150px;">
-				PM <input class="psy" name="system.PM.value" type="text" value="{{actor.system.PM.value}}" placeholder="0" style="width: 40px;"/> /
-				<input class="psymax" name="system.PM.max" type="text" value="{{actor.system.PM.max}}" placeholder="0" style="width: 40px;" readonly/>
-				<input class="regenpm" name="system.PM.reg" type="text" value="{{actor.system.PM.reg}}" placeholder="0" style="width: 40px;" readonly/>
+				PM <input class="psy" name="system.stat.PM.value" type="text" value="{{actor.system.stat.PM.value}}" placeholder="0" style="width: 40px;"/> /
+				<input class="psymax" name="system.stat.PM.max" type="text" value="{{actor.system.stat.PM.max}}" placeholder="0" style="width: 40px;" readonly/>
+				<input class="regenpm" name="system.stat.PM.reg" type="text" value="{{actor.system.stat.PM.reg}}" placeholder="0" style="width: 40px;" readonly/>
 			</div>			
 			<div class="grid-5col" style="min-width: 150px;">
-				M <input class="mouvement" name="system.mouvement" type="text" value="{{actor.system.mouvement}}" placeholder="0" style="width: 40px;"/> 
+				M <input class="mouvement" name="system.stat.mouvement" type="text" value="{{actor.system.stat.mouvement}}" placeholder="0" style="width: 40px;"/> 
 			</div>
 			<div class="grid-5col" style="min-width: 150px;">
-				I <input name="system.initiative" type="text" value="{{actor.system.initiative}}" placeholder="0" style="width: 40px;"/> 
+				I <input name="system.stat.initiative" type="text" value="{{actor.system.stat.initiative}}" placeholder="0" style="width: 40px;"/> 
 			</div>
 		</div>
 	</header>
@@ -80,7 +80,7 @@
 		{{!-- Biography Tab --}}
 	    <div id="description" class="tab description" data-group="primary" data-tab="description">
 	    	<h2>Histoire</h2>
-				<textarea class="histoire" name="system.histoire">{{actor.system.histoire}}</textarea>
+				<textarea class="histoire" name="system.background.histoire">{{actor.system.background.histoire}}</textarea>
 			
 		</div>
 
@@ -89,27 +89,27 @@
 			<div class="flexrow">
 				<div class="grid-6col">
 					<p style="text-align: center"><label>Vigueur</label></p>
-					<input class="agil" name="system.vigueur" type="text" value="{{actor.system.vigueur}}" placeholder="{{actor.system.vigueur}}" style="text-align: center"/>
+					<input class="agil" name="system.attributs.vigueur" type="text" value="{{actor.system.attributs.vigueur}}" placeholder="{{actor.system.attributs.vigueur}}" style="text-align: center"/>
 				</div>
 				<div class="grid-6col">
 					<p style="text-align: center"><label>Coordination</label></p>
-					<input class="agil" name="system.coordination" type="text" value="{{actor.system.coordination}}" placeholder="{{actor.system.coordination}}" style="text-align: center"/>
+					<input class="agil" name="system.attributs.coordination" type="text" value="{{actor.system.attributs.coordination}}" placeholder="{{actor.system.attributs.coordination}}" style="text-align: center"/>
 				</div>
 				<div class="grid-6col">
 					<p style="text-align: center"><label>Logique</label></p>
-					<input class="agil" name="system.logique" type="text" value="{{actor.system.logique}}" placeholder="{{actor.system.logique}}" style="text-align: center"/>
+					<input class="agil" name="system.attributs.logique" type="text" value="{{actor.system.attributs.logique}}" placeholder="{{actor.system.attributs.logique}}" style="text-align: center"/>
 				</div>
 				<div class="grid-6col">
 					<p style="text-align: center"><label>Empathie</label></p>
-					<input class="agil" name="system.empathie" type="text" value="{{actor.system.empathie}}" placeholder="{{actor.system.empathie}}" style="text-align: center"/>
+					<input class="agil" name="system.attributs.empathie" type="text" value="{{actor.system.attributs.empathie}}" placeholder="{{actor.system.attributs.empathie}}" style="text-align: center"/>
 				</div>
 				<div class="grid-6col">
 					<p style="text-align: center"><label>Instinct</label></p>
-					<input class="agil" name="system.instinct" type="text" value="{{actor.system.instinct}}" placeholder="{{actor.system.instinct}}" style="text-align: center"/>
+					<input class="agil" name="system.attributs.instinct" type="text" value="{{actor.system.attributs.instinct}}" placeholder="{{actor.system.attributs.instinct}}" style="text-align: center"/>
 				</div>
 				<div class="grid-6col">
 					<p style="text-align: center"><label>Pouvoir</label></p>
-					<input class="agil" name="system.pouvoir" type="text" value="{{actor.system.pouvoir}}" placeholder="{{actor.system.pouvoir}}" style="text-align: center"/>
+					<input class="agil" name="system.attributs.pouvoir" type="text" value="{{actor.system.attributs.pouvoir}}" placeholder="{{actor.system.attributs.pouvoir}}" style="text-align: center"/>
 				</div>
 				
 			</div>
