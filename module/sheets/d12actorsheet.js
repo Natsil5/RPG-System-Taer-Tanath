@@ -122,9 +122,19 @@
     }
     _onStat(event){
       let vigueur=this.actor.system.vigueur;
+      let coordination=this.actor.system.coordination;
+      let logique=this.actor.system.logique;
+      let empathie=this.actor.system.empathie;
+      let instinct=this.actor.system.instinct;
       let pouvoir=this.actor.system.pouvoir;
+      if(vigueur=="" || vigueur==undefined){vigueur=1;}
+      if(coordination=="" || coordination==undefined){coordination=1;}
+      if(logique=="" || logique==undefined){logique=1;}
+      if(empathie=="" || empathie==undefined){empathie=1;}
+      if(instinct=="" || instinct==undefined){instinct=1;}
+      if(pouvoir=="" || pouvoir==undefined){pouvoir=1;}
       var pv=parseInt(vigueur*5);
-      var pm=parseInt(pouvoir*5);
+      var pm=parseInt(pouvoir*5);        
       var pvreg=Math.round(parseInt(vigueur)/2)
       var pmreg=Math.round(parseInt(pouvoir)/2)
       this.actor.update({"system.PV.max":pv,"system.PM.max":pm,"system.PV.reg":pvreg,"system.PM.reg":pmreg})
