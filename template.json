@@ -14,20 +14,20 @@
                       "reg":0
                     },
                     "PM": {
-                      "value":10,
-                      "max":10,
+                      "value":5,
+                      "max":5,
                       "reg":0
                     },
-                    "mouvement":10,
+                    "mouvement":6,
                     "initiative":0
                 },            
                 "attributs":{
-                    "vigueur":0,
-                    "coordination":0,
-                    "logique":0,
-                    "empathie":0,
-                    "instinct":0,
-                    "pouvoir":0
+                    "vigueur":1,
+                    "coordination":1,
+                    "logique":1,
+                    "empathie":1,
+                    "instinct":1,
+                    "pouvoir":1
                 },
                 "background":{
                     "histoire":"",

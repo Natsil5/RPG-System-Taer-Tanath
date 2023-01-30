@@ -120,25 +120,27 @@
         const item = this.getItemFromEvent(event);
         item.sheet.render(true);
     }
-    _onStat(event){
-      let vigueur=this.actor.system.vigueur;
-      let coordination=this.actor.system.coordination;
-      let logique=this.actor.system.logique;
-      let empathie=this.actor.system.empathie;
-      let instinct=this.actor.system.instinct;
-      let pouvoir=this.actor.system.pouvoir;
-      if(vigueur=="" || vigueur==undefined){vigueur=1;this.actor.update({"system.vigueur":1});}
-      if(coordination=="" || coordination==undefined){coordination=1;this.actor.update({"system.coordination":1});}
-      if(logique=="" || logique==undefined){logique=1;this.actor.update({"system.logique":1});}
-      if(empathie=="" || empathie==undefined){empathie=1;this.actor.update({"system.empathie":1});}
-      if(instinct=="" || instinct==undefined){instinct=1;this.actor.update({"system.instinct":1});}
-      if(pouvoir=="" || pouvoir==undefined){pouvoir=1;this.actor.update({"system.pouvoir":1});}
+    async _onStat(event){
+      let vigueur=this.actor.system.attributs.vigueur;
+      let coordination=this.actor.system.attributs.coordination;
+      let logique=this.actor.system.attributs.logique;
+      let empathie=this.actor.system.attributs.empathie;
+      let instinct=this.actor.system.attributs.instinct;
+      let pouvoir=this.actor.system.attributs.pouvoir;
+
+      if(vigueur=="" || vigueur==undefined){vigueur=0;this.actor.update({"system.attributs.vigueur":0});}
+      if(coordination=="" || coordination==undefined){coordination=0;this.actor.update({"system.attributs.coordination":0});}
+      if(logique=="" || logique==undefined){logique=0;this.actor.update({"system.attributs.logique":0});}
+      if(empathie=="" || empathie==undefined){empathie=0;this.actor.update({"system.attributs.empathie":0});}
+      if(instinct=="" || instinct==undefined){instinct=0;this.actor.update({"system.attributs.instinct":0});}
+      if(pouvoir=="" || pouvoir==undefined){pouvoir=0;this.actor.update({"system.attributs.pouvoir":0});}
+
       var pv=parseInt(vigueur*5);
       var pm=parseInt(pouvoir*5);        
       var pvreg=Math.round(parseInt(vigueur)/2)
       var pmreg=Math.round(parseInt(pouvoir)/2)
-      this.actor.update({"system.PV.max":pv,"system.PM.max":pm,"system.PV.reg":pvreg,"system.PM.reg":pmreg})
-    }
+      this.actor.update({"system.stat.PV.max":pv,"system.stat.PM.max":pm,"system.stat.PV.reg":pvreg,"system.stat.PM.reg":pmreg})
+  }
 
     //lancer de dés
     _onRoll(event){
