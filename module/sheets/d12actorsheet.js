@@ -13,7 +13,7 @@ export class d12ActorSheet extends ActorSheet {
   }
 
   get template() {
-      console.log(`Liber | Récupération du fichier html ${this.actor.type}-sheet.`);
+      console.log(`taerTanath | Récupération du fichier html ${this.actor.type}-sheet.`);
       if(this.actor.type=='pnj' || this.actor.type=='personnage'){
           return `systems/d12/templates/sheets/personnage-sheet.html`;
       }else {

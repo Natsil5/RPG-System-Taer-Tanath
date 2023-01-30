@@ -1,4 +1,4 @@
-<form class="{{cssClass}} liber flexcol" autocomplete="off">
+<form class="{{cssClass}} taerTanath flexcol" autocomplete="off">
 	{{!-- Sheet Header --}}
 	<header class="sheet-header flexcol" id="pj-titre" style="flex: 0 0 357px;">
 		
@@ -11,7 +11,7 @@
 				<div class="flexrow">
 					<div class="grid-3col">
 					<h2>Sexe</h2>
-					<input name="system.background.sexe" type="text" value="" placeholder=""/>
+					<input name="system.background.sexe" type="text"/>
 					<h2>Peuple</h2>
 						<ol class="items-list">
 						{{#each actor.peuple as |item id|}}
@@ -27,7 +27,7 @@
 					</div>
 					<div class="grid-3col">
 						<h2>Age</h2>
-						<input name="system.backgroundage" type="text" value="" placeholder=""/>
+						<input name="system.backgroundage" type="text"/>
 						<h2>Métier</h2>	
 						<ol class="items-list">
 						{{#each actor.metier as |item id|}}
