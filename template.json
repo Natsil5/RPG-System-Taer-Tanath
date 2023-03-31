@@ -9,14 +9,14 @@
             "perso":{
                 "stat":{
                     "PV": {
-                      "value":5,
-                      "max":5,
-                      "reg":1
+                      "value":50,
+                      "max":50,
+                      "reg":5
                     },
                     "PM": {
-                      "value":5,
-                      "max":5,
-                      "reg":1
+                      "value":50,
+                      "max":50,
+                      "reg":5
                     },
                     "mouvement":6,
                     "initiative":0

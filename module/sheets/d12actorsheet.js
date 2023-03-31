@@ -142,10 +142,10 @@ _prepareCharacterItems(sheetData) {
       if(instinct=="" || instinct==undefined){instinct=1;this.actor.update({"system.attributs.instinct":1});}
       if(pouvoir=="" || pouvoir==undefined){pouvoir=1;this.actor.update({"system.attributs.pouvoir":1});}
 
-      var pv=parseInt(vigueur*5);
-      var pm=parseInt(pouvoir*5);        
-      var pvreg=Math.round(parseInt(vigueur)/2);
-      var pmreg=Math.round(parseInt(pouvoir)/2);
+      var pv=parseInt(vigueur*50);
+      var pm=parseInt(pouvoir*50);        
+      var pvreg=Math.round(parseInt(vigueur)/10);
+      var pmreg=Math.round(parseInt(pouvoir)/10);
       this.actor.update({"system.stat.PV.max":pv,"system.stat.PM.max":pm,"system.stat.PV.reg":pvreg,"system.stat.PM.reg":pmreg});
   }
   //lancer de dés
