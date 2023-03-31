@@ -149,35 +149,60 @@ _prepareCharacterItems(sheetData) {
       this.actor.update({"system.stat.PV.max":pv,"system.stat.PM.max":pm,"system.stat.PV.reg":pvreg,"system.stat.PM.reg":pmreg});
   }
 
-  async _onRoll(event) {
-    event.preventDefault();
-    const element = event.currentTarget;
-    const dataset = element.dataset;
-  
-    // Get the item ID from the nearest parent "item" element.
-    const itemId = element.closest(".item").dataset.itemId;
-    const item = this.actor.items.get(itemId);
-  
-    // Build the roll object.
-    const rollData = {
-      name: item.name,
-      item: item,
-      actor: this.actor,
-      data: item.data.data
-    };
-  
-    // Get the roll formula from the item data and roll the dice.
-    const roll = new Roll(item.data.data.formule, rollData);
-    roll.roll();
-  
-    // Display the chat message.
-    const chatData = {
-      user: game.user._id,
-      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      roll: roll,
-      item: item,
-      flavor: item.data.data.flavor
-    };
-    await ChatMessage.create(chatData);
-  }
+  _onRoll(event) {
+    let caract = event.target.dataset["caract"];
+    let bonus = event.target.dataset["bonus"];
+    let valeur = event.target.dataset["valeur"];
+    const name = event.target.dataset["name"];
+    const img = event.target.dataset["img"];
+    let jetdeDesFormule = '1d12';
+    let ajout=0;
+    if(valeur=="armes") {
+        jetdeDesFormule = caract;
+    } else {
+        if(caract=="vigueur") {
+            var base=this.actor.system.attributs.vigueur;
+        } else if(caract=="coordination") {
+            var base=this.actor.system.attributs.coordination;
+        } else if(caract=="logique") {
+            var base=this.actor.system.attributs.logique;
+        } else if(caract=="empathie") {
+            var base=this.actor.system.attributs.empathie;
+        } else if(caract=="instinct") {
+            var base=this.actor.system.attributs.instinct;
+        } else if(caract=="pouvoir") {
+            var base=this.actor.system.attributs.pouvoir;
+        } else {
+            var base=0;
+        }
+        ajout=parseInt(bonus)+parseInt(valeur)
+        jetdeDesFormule = base+"d12+"+ajout; //formule du lancer (caract)D12+valeur  
+    }
+
+    let r = new Roll(jetdeDesFormule);
+    console.log(jetdeDesFormule);
+    r.evaluate({async:true}).then(result => {
+        if(valeur=="armes") {
+            var total=result.total;
+        } else {
+            var table=result.terms[0].results;
+            var z=0;
+            for (var i = table.length - 1; i >= 0; i--) {
+                if(table[i].result>z){
+                    z=table[i].result;
+                }
+            } 
+            var total=parseInt(z)+parseInt(ajout);
+            var succes="";  
+        }
+
+        const texte = '<img src="'+img+'"  width="24" height="24"/><span style="left: 5px;top: -7px;position: relative;font-size: 1.2em;">Jet de ' + name + ' : <span style="color: #fff;background: #23221d;padding: 5px;">' +total+'</span></span>' ;//+" - "+succes+" réussite(s)";
+        result.toMessage({
+            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+            flavor: texte
+        });
+    });
+}
+
+
 }
