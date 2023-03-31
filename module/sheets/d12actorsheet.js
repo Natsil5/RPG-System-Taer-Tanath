@@ -149,7 +149,7 @@ _prepareCharacterItems(sheetData) {
       this.actor.update({"system.stat.PV.max":pv,"system.stat.PM.max":pm,"system.stat.PV.reg":pvreg,"system.stat.PM.reg":pmreg});
   }
 
-_onRoll(event) {
+  _onRoll(event) {
     let caract = event.target.dataset["caract"];
     let bonus = event.target.dataset["bonus"];
     let valeur = event.target.dataset["valeur"];
@@ -179,9 +179,9 @@ _onRoll(event) {
         jetdeDesFormule = base+"d12+"+ajout; //formule du lancer (caract)D12+valeur  
     }
 
-    let r = await new Roll(jetdeDesFormule).evaluate({async:true});
+    let r = new Roll(jetdeDesFormule);
     console.log(jetdeDesFormule);
-    r.evaluate().then(result => {
+    r.evaluate({async:true}).then(result => {
         if(valeur=="armes") {
             var total=result.total;
         } else {
@@ -203,5 +203,6 @@ _onRoll(event) {
         });
     });
 }
+
 
 }
