@@ -11,7 +11,7 @@
 				<div class="flexrow">
 					<div class="grid-3col">
 					<h2>Sexe</h2>
-					<input name="Sexe" type="text"/>
+					<input name="system.background.sexe" type="text" value="{{actor.sexe}}" placeholder="sexe"/>
 					<h2>Peuple</h2>
 						<ol class="items-list">
 						{{#each actor.peuple as |item id|}}
@@ -27,7 +27,7 @@
 					</div>
 					<div class="grid-3col">
 						<h2>Age</h2>
-						<input name="age" type="text"/>
+						<input name="system.background.age" type="text" value="{{actor.age}}" placeholder="age"/>
 						<h2>Métier</h2>	
 						<ol class="items-list">
 						{{#each actor.metier as |item id|}}
