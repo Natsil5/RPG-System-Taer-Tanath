@@ -144,8 +144,8 @@ _prepareCharacterItems(sheetData) {
 
       var pv=parseInt(vigueur*50);
       var pm=parseInt(pouvoir*50);        
-      var pvreg=Math.round(parseInt(vigueur)/10);
-      var pmreg=Math.round(parseInt(pouvoir)/10);
+      var pvreg=Math.round(parseInt(vigueur)*5);
+      var pmreg=Math.round(parseInt(pouvoir)*5);
       this.actor.update({"system.stat.PV.max":pv,"system.stat.PM.max":pm,"system.stat.PV.reg":pvreg,"system.stat.PM.reg":pmreg});
   }
   //lancer de dés
