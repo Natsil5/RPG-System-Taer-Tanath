@@ -4,14 +4,14 @@
 		
 		<div class="flexrow">
 			<div class="grid-2col">
-				<img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" style="display: inline-block; height: 211px; width: calc(100% - 20px); margin-top: 20px"/>
+				<img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" style="display: inline-block; height: 211px; width: auto"/>
 			</div>
 			<div class="grid-2col">
 				<h1><input class="nomperso" name="name" type="text" value="{{actor.name}}" placeholder="Name" style="height:50px"/></h1>
 				<div class="flexrow">
 					<div class="grid-3col">
 					<h2>Sexe</h2>
-					<input name="system.background.sexe" type="text"/>
+					<input name="Sexe" type="text"/>
 					<h2>Peuple</h2>
 						<ol class="items-list">
 						{{#each actor.peuple as |item id|}}
@@ -27,7 +27,7 @@
 					</div>
 					<div class="grid-3col">
 						<h2>Age</h2>
-						<input name="system.backgroundage" type="text"/>
+						<input name="age" type="text"/>
 						<h2>Métier</h2>	
 						<ol class="items-list">
 						{{#each actor.metier as |item id|}}
