@@ -148,61 +148,59 @@ _prepareCharacterItems(sheetData) {
       var pmreg=Math.round(parseInt(pouvoir)*5);
       this.actor.update({"system.stat.PV.max":pv,"system.stat.PM.max":pm,"system.stat.PV.reg":pvreg,"system.stat.PM.reg":pmreg});
   }
-  //lancer de dés
-  _onRoll(event){
-      let caract = event.target.dataset["caract"];
-      let bonus = event.target.dataset["bonus"];
-      let valeur = event.target.dataset["valeur"];
-      const name = event.target.dataset["name"];
-      const img = event.target.dataset["img"];
-      let jetdeDesFormule = '1d12';
-      let ajout=0;
-      if(valeur=="armes"){
-          jetdeDesFormule = caract;
-      }else {
-          if(caract=="vigueur"){
-              var base=this.actor.system.attributs.vigueur;
-          }else  if(caract=="coordination"){
-              var base=this.actor.system.attributs.coordination;
-          }else  if(caract=="logique"){
-              var base=this.actor.system.attributs.logique;
-          }else  if(caract=="empathie"){
-              var base=this.actor.system.attributs.empathie;
-          }else  if(caract=="instinct"){
-              var base=this.actor.system.attributs.instinct;
-          }else  if(caract=="pouvoir"){
-              var base=this.actor.system.attributs.pouvoir;
-          }else{
-              var base=0;
-          }
-          ajout=parseInt(bonus)+parseInt(valeur)
-          jetdeDesFormule = parseInt(base)+"d12+"+ajout; //formule du lancer (caract)D12+valeur  
-      }
-      
+  _onRoll(event) {
+    let caract = event.target.dataset["caract"];
+    let bonus = event.target.dataset["bonus"];
+    let valeur = event.target.dataset["valeur"];
+    const name = event.target.dataset["name"];
+    const img = event.target.dataset["img"];
+    let jetdeDesFormule = '1d12';
+    let ajout=0;
+    if(valeur=="armes") {
+        jetdeDesFormule = caract;
+    } else {
+        if(caract=="vigueur") {
+            var base=this.actor.system.attributs.vigueur;
+        } else if(caract=="coordination") {
+            var base=this.actor.system.attributs.coordination;
+        } else if(caract=="logique") {
+            var base=this.actor.system.attributs.logique;
+        } else if(caract=="empathie") {
+            var base=this.actor.system.attributs.empathie;
+        } else if(caract=="instinct") {
+            var base=this.actor.system.attributs.instinct;
+        } else if(caract=="pouvoir") {
+            var base=this.actor.system.attributs.pouvoir;
+        } else {
+            var base=0;
+        }
+        ajout=parseInt(bonus)+parseInt(valeur)
+        jetdeDesFormule = base+"d12+"+ajout; //formule du lancer (caract)D12+valeur  
+    }
 
-      let r = new Roll(jetdeDesFormule);
-      console.log(jetdeDesFormule)
-      var roll=r.evaluate({"async": false});
-      
-      if(valeur=="armes"){
-          var total=r.total;
-      }else{
-        var table=r.terms[0].results
-          var z=0;
-          for (var i = table.length - 1; i >= 0; i--) {
-              if(table[i].result>z){
-                  z=table[i].result;
-              }
-          } 
-          var total=parseInt(z)+parseInt(ajout)
-          var succes="";  
-      }
-      
+    let r = new Roll(jetdeDesFormule);
+    console.log(jetdeDesFormule);
+    r.evaluate().then(result => {
+        if(valeur=="armes") {
+            var total=result.total;
+        } else {
+            var table=result.terms[0].results;
+            var z=0;
+            for (var i = table.length - 1; i >= 0; i--) {
+                if(table[i].result>z){
+                    z=table[i].result;
+                }
+            } 
+            var total=parseInt(z)+parseInt(ajout);
+            var succes="";  
+        }
 
-      const texte = '<img src="'+img+'"  width="24" height="24"/><span style="left: 5px;top: -7px;position: relative;font-size: 1.2em;">Jet de ' + name + ' : <span style="color: #fff;background: #23221d;padding: 5px;">' +total+'</span></span>' ;//+" - "+succes+" réussite(s)";
-      roll.toMessage({
-          speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-          flavor: texte
-      });
-  }
+        const texte = '<img src="'+img+'"  width="24" height="24"/><span style="left: 5px;top: -7px;position: relative;font-size: 1.2em;">Jet de ' + name + ' : <span style="color: #fff;background: #23221d;padding: 5px;">' +total+'</span></span>' ;//+" - "+succes+" réussite(s)";
+        result.toMessage({
+            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+            flavor: texte
+        });
+    });
+}
+
 }
