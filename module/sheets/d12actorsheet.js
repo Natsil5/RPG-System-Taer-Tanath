@@ -179,7 +179,7 @@ _onRoll(event) {
         jetdeDesFormule = base+"d12+"+ajout; //formule du lancer (caract)D12+valeur  
     }
 
-    let r = new Roll(jetdeDesFormule);
+    let r = await new Roll(jetdeDesFormule).evaluate({async:true});
     console.log(jetdeDesFormule);
     r.evaluate().then(result => {
         if(valeur=="armes") {
