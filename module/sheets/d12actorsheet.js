@@ -148,7 +148,8 @@ _prepareCharacterItems(sheetData) {
       var pmreg=Math.round(parseInt(pouvoir)*5);
       this.actor.update({"system.stat.PV.max":pv,"system.stat.PM.max":pm,"system.stat.PV.reg":pvreg,"system.stat.PM.reg":pmreg});
   }
-  _onRoll(event) {
+
+_onRoll(event) {
     let caract = event.target.dataset["caract"];
     let bonus = event.target.dataset["bonus"];
     let valeur = event.target.dataset["valeur"];
